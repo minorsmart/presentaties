@@ -171,8 +171,89 @@
               <h2>Let's sta<font color="red">R</font>t!</h2>
                 <pre><code data-trim data-noescape>
                       install.packages(c("dplyr", "tidyr",
-                      "gsheet", "leaflet",
-                      "knitr"))
+                      "ggplot2", "gsheet",
+                      "leaflet", "knitr"))
+                     </code>
+                </pre>
+                <ul>
+                    <li type="square">Download <a href="https://minorsmart.github.io/finance/finRes.nb.html"                     target="_blank">Rmd file</a></li>
+                    <li type="square">Open notebook in RStudio</li>
+                </ul>
+                
+            </section>
+            <section>
+              <h2>Financial Model</h2>
+                <pre><code data-trim data-noescape>
+                      t <- 0
+                      sales <- 1000000
+                      varcosts <- sales * 0.7
+                      fixcosts <- 50000
+                      bresult <- sales - varcosts - fixcosts
+                      taxes <- bresult * 0.25
+                      nresult <- bresult - taxes
+
+                      finres <- data.frame(t, sales, varcosts,
+                                           fixcosts, bresult,
+                                           taxes, nresult)
+                     </code>
+                </pre>
+            </section>
+            <section>
+              <h2>G<font color="red">R</font>owth</h2>
+                <pre><code data-trim data-noescape>
+                      growthcalc <- function(startvalue, rate) {
+  
+                                               endvalue <- startvalue * (1 + rate)
+                                               return(endvalue)
+  
+                                    }
+                     </code>
+                </pre>
+            </section>
+            <section>
+              <h2>G<font color="red">R</font>owth</h2>
+                <pre><code data-trim data-noescape>
+                      growth <- 0.15
+                      inflation <- 0.012
+                      
+                      for (s in c(1:10)) {
+  
+                      t <- c(t, s)
+                      sales <- c(sales,
+                                 growthcalc(sales[s],
+                                            growth)
+                                 )
+                      fixcosts <- c(fixcosts,
+                                    growthcalc(fixcosts[s],
+                                               inflation)
+                                    )
+  
+                      }
+                     </code>
+                </pre>
+            </section>
+            <section>
+              <h2><font color="red">R</font>isk</h2>
+                <pre><code data-trim data-noescape>
+                      <mark>stdevg <- 0.12</mark>
+                      <mark>stdevi <- 0.003</mark>
+
+                      for (s in c(1:10)) {
+  
+                          t <- c(t, s)
+                          sales <- c(sales,
+                                     growthcalc(sales[s],
+                                                <mark>rnorm(1, mean = growth, sd = stdevg)</mark>
+                                                )
+                                      )
+                          
+                          fixcosts <- c(fixcosts,
+                                        growthcalc(fixcosts[s],
+                                                   <mark></->rnorm(1, mean = inflation, sd = stdevg)</mark>
+                                                   )
+                                       )
+  
+                      }
                      </code>
                 </pre>
             </section>
