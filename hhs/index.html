@@ -260,6 +260,25 @@
                      </code>
                 </pre>
             </section>
+            <section>
+              <h2>Value</h2>
+                <pre><code data-trim data-noescape>
+                      presval <- function(futurevalue, discountrate, nperiods) {
+  
+                      presentvalue <- futurevalue / (1 + discountrate)^nperiods
+  
+                                 }
+
+                      discrate <- 0.05
+                      finres.uncertain <- mutate(finres.uncertain,
+                                                 nresult.pres = presval(nresult,
+                                                                        discrate,
+                                                                        t)
+                                                 )
+
+                      investment <- 3000000
+                      netpresval <- -investment + sum(finres.uncertain$nresult.pres)
+            </section>
         </div>
     </div>
 
