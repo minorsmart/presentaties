@@ -262,7 +262,8 @@
             </section>
             <section>
               <h2>Value</h2>
-                <pre><code data-trim data-noescape>
+                <pre>
+                  <code data-trim data-noescape>
                       presval <- function(futurevalue, discountrate, nperiods) {
   
                       presentvalue <- futurevalue / (1 + discountrate)^nperiods
@@ -294,11 +295,34 @@
                 </ul>
             </section>
             <section>
-              <h2>Excercise Monte Carlo</h2>
-              <ul>
-                    <li type="square">Download <a href="https://docs.google.com/spreadsheets/d/1dqBGfdAZsouIhchLC4uNs3WraxzraD1JL-xH2F_kads/pub?output=xlsx" target="_blank">Excel file</a></li>
-                    <li type="square">or <a href="https://docs.google.com/spreadsheets/d/1dqBGfdAZsouIhchLC4uNs3WraxzraD1JL-xH2F_kads/copy?usp=sharing" target="_blank">Google Spreadsheet</a></li>
+              <h2>Monte Ca<font color="red">R</font>lo</h2>
+              <pre>
+                  <code data-trim data-noescape>
+                      NumbSims <- 2e6
+                      
+                      unifpop=runif(NumbSims, min=20, max=30)
+                      poispop=rpois(NumbSims, lambda = 35)
+                      normpop=rnorm(NumbSims, 15, 4)
+                      
+                      combined = unifpop + poispop + normpop
+                    </code>
+                 </pre>
+                 <ul>
+                    <li type="square">Open <a href="https://minorsmart.github.io/finance/mcSim.nb.html" target="_blank">Rmd file</a> in RStudio</li>
                 </ul>
+            </section>
+            <section>
+              <h2>CLT?</h2>
+                 <img src="image/Rplot.png" width = "800" height="400">
+            </section>
+            <section>
+              <h2><font color="red">R</font>esources</h2>
+              <ul>
+                    <li type="square"><a href="https://cran.r-project.org/" target="_blank">CRAN</a> : 10,000+ R packages (NLP, ML, NN, ....)</li>
+                    <li type="square"><a href="https://www.r-bloggers.com/" target="_blank">R-Bloggers</a> : very active community</li>
+                    <li type="square"><a href="https://www.meetup.com/Nijmegen-eveRybody/" target="_blank">Data Science Meetups</a></li>
+                    <li type="square"><a href="https://www.kaggle.com/competitions" target="_blank">Kaggle</a></li>
+              </ul>
             </section>
         </div>
     </div>
