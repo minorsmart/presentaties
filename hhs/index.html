@@ -192,12 +192,12 @@
                       sales <- 1000000
                       varcosts <- sales * 0.7
                       fixcosts <- 50000
-                      bresult <- sales - varcosts - fixcosts
-                      taxes <- bresult * 0.25
-                      nresult <- bresult - taxes
+                      gresult <- sales - varcosts - fixcosts
+                      taxes <- gresult * 0.25
+                      nresult <- gresult - taxes
 
                       finres <- data.frame(t, sales, varcosts,
-                                           fixcosts, bresult,
+                                           fixcosts, gresult,
                                            taxes, nresult)
                      </code>
                 </pre>
